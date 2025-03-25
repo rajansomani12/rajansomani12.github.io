@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajan Somani - React Native Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+        }
+
+        .header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .header .contact-info {
+            opacity: 0.9;
+        }
+
+        .header .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .header .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        .main-content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            color: #764ba2;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .experience-item, .project-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .experience-item:hover, .project-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .experience-item h3, .project-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .date {
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+        }
+
+        .project-links a {
+            color: #764ba2;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            margin-top: 1rem;
+        }
+
+        .project-links a:hover {
+            color: #667eea;
+        }
+
+        .project-links i {
+            font-size: 1.1rem;
+        }
+
+        .contact-info i {
+            margin-right: 0.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+
+        ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        ul li:before {
+            content: '•';
+            color: #764ba2;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                margin: 0;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .skills-list {
+                gap: 0.5rem;
+            }
+
+            .skill-tag {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Rajan Somani</h1>
+            <div class="contact-info">
+                <p><i class="fas fa-code"></i>React Native Developer</p>
+                <p><i class="fas fa-envelope"></i>rajan_somani@yahoo.com</p>
+                <p><i class="fas fa-phone"></i>9106161446</p>
+                <p><i class="fab fa-linkedin"></i><a href="https://in.linkedin.com/in/rajan-somani-a53807112" target="_blank">LinkedIn Profile</a></p>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="section">
+                <h2 class="section-title">Career Objective</h2>
+                <div class="experience-item">
+                    <p>A forward-thinking developer offering more than 5 years of experience building, integrating, testing, and supporting Android and React-native applications for mobile and tablet devices on the Android platform seeks a position with a top technology firm.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="experience-item">
+                    <h3><i class="fas fa-briefcase"></i> Abbacus Technologies</h3>
+                    <p class="date"><i class="far fa-calendar-alt"></i> May 2021 - Present</p>
+                </div>
+                <div class="experience-item">
+                    <h3><i class="fas fa-briefcase"></i> DB Corp Ltd</h3>
+                    <p class="date"><i class="far fa-calendar-alt"></i> Oct 2019 - May 2021</p>
+                </div>
+                <div class="experience-item">
+                    <h3><i class="fas fa-briefcase"></i> GSP Crop Science Pvt Ltd</h3>
+                    <p class="date"><i class="far fa-calendar-alt"></i> Jan 2019 - Oct 2019</p>
+                </div>
+                <div class="experience-item">
+                    <h3><i class="fas fa-briefcase"></i> Addon Solutions</h3>
+                    <p class="date"><i class="far fa-calendar-alt"></i> Dec 2017 - Dec 2018</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-list">
+                    <span class="skill-tag"><i class="fas fa-server"></i> REST APIs</span>
+                    <span class="skill-tag"><i class="fas fa-code"></i> JSON Parsing</span>
+                    <span class="skill-tag"><i class="fab fa-google"></i> Google APIs</span>
+                    <span class="skill-tag"><i class="fas fa-fire"></i> Firebase</span>
+                    <span class="skill-tag"><i class="fas fa-paint-brush"></i> Dynamic Design</span>
+                    <span class="skill-tag"><i class="fab fa-react"></i> React Native</span>
+                    <span class="skill-tag"><i class="fas fa-code-branch"></i> Functional Components</span>
+                    <span class="skill-tag"><i class="fas fa-code"></i> Hooks</span>
+                    <span class="skill-tag"><i class="fas fa-database"></i> Redux</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Education</h2>
+                <div class="experience-item">
+                    <h3><i class="fas fa-graduation-cap"></i> MCA - GLS University</h3>
+                    <p class="date">2016 - 2018</p>
+                </div>
+                <div class="experience-item">
+                    <h3><i class="fas fa-graduation-cap"></i> BCA - Maharaja Krishnakumarsinhji Bhavnagar University</h3>
+                    <p class="date">2013 - 2016</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="project-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> AddonTrack</h3>
+                    <p>Vehicle tracking application with real-time monitoring capabilities.</p>
+                    <ul>
+                        <li>Real-time vehicle tracking and route history</li>
+                        <li>Fuel and speed monitoring</li>
+                        <li>Remote engine control</li>
+                        <li>Daily vehicle summary reports</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.addontrack.track" target="_blank">
+                            <i class="fab fa-google-play"></i> View on Play Store
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3><i class="fas fa-comment-dots"></i> HowzIt AI Messenger</h3>
+                    <p>Advanced messaging application with AI integration.</p>
+                    <ul>
+                        <li>WhatsApp-like messaging with AI features</li>
+                        <li>Multimedia file sharing</li>
+                        <li>Group chat, personal chat, and broadcast</li>
+                        <li>Animated stickers and greeting cards</li>
+                        <li>Emotion-based message color customization</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.mithrai.howzit" target="_blank">
+                            <i class="fab fa-google-play"></i> View on Play Store
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3><i class="fas fa-box"></i> GSP SLR 525</h3>
+                    <p>Inventory management system for distributors and retailers.</p>
+                    <ul>
+                        <li>Real-time stock management</li>
+                        <li>Distributor-retailer stock assignment</li>
+                        <li>Reward points system</li>
+                        <li>Order history tracking</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.gsp.rewards" target="_blank">
+                            <i class="fab fa-google-play"></i> View on Play Store
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3><i class="fas fa-newspaper"></i> DB CITIZEN</h3>
+                    <p>Citizen journalism platform for news sharing.</p>
+                    <ul>
+                        <li>User-generated news content</li>
+                        <li>Multi-format news upload (image, video, audio, text)</li>
+                        <li>Article rating system</li>
+                        <li>Personal story management</li>
+                        <li>Built with Firestore and Firebase storage</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <h3><i class="fas fa-newspaper"></i> DBCL Matrix</h3>
+                    <p>Content management system for Dainik Bhaskar Publishing.</p>
+                    <ul>
+                        <li>Multi-language content management (Gujarati, Hindi, Marathi, English)</li>
+                        <li>Content workflow management</li>
+                        <li>PDF edition viewer</li>
+                        <li>Face detection and content auto-correction</li>
+                        <li>Internal chat module with Firebase integration</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.db.dbclmatrix" target="_blank">
+                            <i class="fab fa-google-play"></i> View on Play Store
+                        </a>
+                    </div>
+                </div>
+
+                <!-- <div class="project-item">
+                    <h3><i class="fas fa-quote-right"></i> Morning Motivation</h3>
+                    <p>Motivational quotes sharing application.</p>
+                    <ul>
+                        <li>Daily motivational quotes</li>
+                        <li>Quote sharing as text or image</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.infotechbite.motivationalquotes" target="_blank">
+                            <i class="fab fa-google-play"></i> View on Play Store
+                        </a>
+                    </div>
+                </div> -->
+
+                <div class="project-item">
+                    <h3><i class="fas fa-brain"></i> Bodychats (React Native)</h3>
+                    <p>Educational app for body language learning.</p>
+                    <ul>
+                        <li>Interactive learning modules</li>
+                        <li>Multiple-choice questions</li>
+                        <li>Image and video quizzes</li>
+                        <li>Offline functionality with Realm database</li>
+                                            </ul>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.bodychats" target="_blank">
+                            <i class="fab fa-google-play"></i> View on Play Store
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h3><i class="fas fa-store"></i> Lamilano Manager App (React Native)</h3>
+                    <p>Order management system for store managers and riders.</p>
+                    <ul>
+                        <li>Order assignment and tracking</li>
+                        <li>Real-time status updates</li>
+                        <li>Background location tracking</li>
+                        <li>Rider order management</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <h3><i class="fas fa-tools"></i> Mine Service (React Native)</h3>
+                    <p>Service marketplace and product trading platform.</p>
+                    <ul>
+                        <li>Service provider discovery</li>
+                        <li>Product buying/selling marketplace</li>
+                        <li>City-based service matching</li>
+                        <li>In-app chat functionality</li>
+                        <li>Service quotation system</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <h3><i class="fas fa-chart-line"></i> Mine Business (React Native)</h3>
+                    <p>Vendor management application.</p>
+                    <ul>
+                        <li>Service request management</li>
+                        <li>Service status tracking</li>
+                        <li>Customer chat integration</li>
+                        <li>6-month performance analytics</li>
+                        <li>Business reporting and insights</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
