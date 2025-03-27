@@ -212,6 +212,46 @@
                 font-size: 0.8rem;
             }
         }
+
+        body {
+            margin: 0; /* Remove body margin */
+            padding: 0; /* Remove body padding */
+            line-height: 1.4; /* Adjust line height for better spacing */
+        }
+
+        .container {
+            max-width: 100%; /* Ensure the container takes full width */
+            margin: 0; /* Remove container margin */
+            padding: 1rem; /* Add minimal padding */
+            background-color: #f8f9fa;
+            box-shadow: none; /* Remove shadow for PDF */
+            border-radius: 0; /* Remove border radius for PDF */
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .download-btn {
+                display: none !important;
+                visibility: hidden;
+                opacity: 0;
+            }
+
+            .header {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
     </style>
 </head>
 <body>
@@ -438,7 +478,7 @@
         .download-btn i {
             font-size: 1.1rem;
         }
-
+ // Higher scale for better quality
         @media print {
             body {
                 background: none;
@@ -474,7 +514,7 @@
             button.style.display = 'none';
             
             const options = {
-                margin: [10, 10],
+                margin: [5, 5], // Reduced margins to minimize white space
                 filename: 'rajan_somani_resume.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { 
